@@ -1,0 +1,24 @@
+syntax = "proto3";
+package com.swanjohi;
+
+option java_multiple_files=true;
+option java_package="com.swanjohi.grpc";
+option java_outer_classname="StockTradingProto";
+
+
+
+service StockTradingService {
+
+  rpc getStockPrice(StockRequest) returns (StockResponse);
+
+}
+
+message StockResponse {
+  string stock_symbol=1;
+  double amount=2;
+  string timestamp=3;
+}
+
+message StockRequest {
+  string stock_symbol=1;
+}
